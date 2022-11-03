@@ -1,0 +1,35 @@
+syntax = "proto3";
+import public "global_options.proto";
+
+option go_package="./;proto";
+option java_package = "org.liquibase.grpc.proto";
+option java_multiple_files = true;
+option java_outer_classname = "DiffProto";
+
+package liquibase;
+
+service DiffService {
+  rpc execute(DiffRequest) returns (Response) {}
+}
+
+/* Compare two databases */
+message DiffRequest {
+  optional string diff_types = 1; // Types of objects to compare
+  optional string driver = 2; // The JDBC driver class
+  optional string driver_properties_file = 3; // The JDBC driver properties file
+  optional string exclude_objects = 4; // Objects to exclude from diff
+  optional string format = 5; // Option to create JSON output
+  optional string include_objects = 6; // Objects to include in diff
+  optional string password = 7; // The target database password
+  optional string reference_password = 8; // The reference database password
+  string reference_url = 9; // *required* The JDBC reference database connection URL
+  optional string reference_username = 10; // The reference database username
+  optional string schemas = 11; // Schemas to include in diff
+  string url = 12; // *required* The JDBC target database connection URL
+  optional string username = 13; // The target database username
+  liquibase.GlobalOptions global_options = 14;
+}
+
+message Response {
+  string message = 1;
+}
