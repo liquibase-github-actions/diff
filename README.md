@@ -6,7 +6,7 @@ Compare two databases
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/diff@v4.17.2
+- uses: liquibase-github-actions/diff@v4.18.0
   with:
     # The JDBC reference database connection URL
     # string
@@ -38,7 +38,7 @@ steps:
     # Optional
     excludeObjects: ""
 
-    # Option to create JSON output
+    # [PRO] Option to create JSON output
     # string
     # Optional
     format: ""
@@ -85,7 +85,7 @@ The liquibase diff action accepts all valid liquibase global options as optional
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/diff@v4.17.2
+  - uses: liquibase-github-actions/diff@v4.18.0
     with:
       referenceUrl: ""
       url: ""

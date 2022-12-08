@@ -16,7 +16,7 @@ inputs:
     description: 'Objects to exclude from diff'
     required: false
   format: # string
-    description: 'Option to create JSON output'
+    description: '[PRO] Option to create JSON output'
     required: false
   includeObjects: # string
     description: 'Objects to include in diff'

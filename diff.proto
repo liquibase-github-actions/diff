@@ -18,7 +18,7 @@ message DiffRequest {
   optional string driver = 2; // The JDBC driver class
   optional string driver_properties_file = 3; // The JDBC driver properties file
   optional string exclude_objects = 4; // Objects to exclude from diff
-  optional string format = 5; // Option to create JSON output
+  optional string format = 5; // [PRO] Option to create JSON output
   optional string include_objects = 6; // Objects to include in diff
   optional string password = 7; // The target database password
   optional string reference_password = 8; // The reference database password
