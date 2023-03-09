@@ -1,22 +1,42 @@
 # Liquibase Diff Action
 Official GitHub Action to run Liquibase Diff in your GitHub Action Workflow. For more information on how diff works visit the [Official Liquibase Documentation](https://docs.liquibase.com/commands/home.html).
 ## Diff
-Compare two databases
+Outputs a description of differences.  If you have a Liquibase Pro key, you can output the differences as JSON using the --format=JSON option
 ## Usage
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/diff@v4.19.1
+- uses: liquibase-github-actions/diff@v4.20.0
   with:
     # The JDBC reference database connection URL
     # string
     # Required
     referenceUrl: ""
 
-    # The JDBC target database connection URL
+    # The JDBC database connection URL
     # string
     # Required
     url: ""
+
+    # 
+    # string
+    # Optional
+    compareControl: ""
+
+    # 
+    # string
+    # Optional
+    database: ""
+
+    # The default catalog name to use for the database connection
+    # string
+    # Optional
+    defaultCatalogName: ""
+
+    # The default schema name to use for the database connection
+    # string
+    # Optional
+    defaultSchemaName: ""
 
     # Types of objects to compare
     # string
@@ -48,15 +68,60 @@ steps:
     # Optional
     includeObjects: ""
 
-    # The target database password
+    # 
+    # string
+    # Optional
+    objectChangeFilter: ""
+
+    # Output schemas names. This is a CSV list.
+    # string
+    # Optional
+    outputSchemas: ""
+
+    # Password to use to connect to the database
     # string
     # Optional
     password: ""
+
+    # 
+    # string
+    # Optional
+    referenceDatabase: ""
+
+    # The default catalog name to use for the reference database connection
+    # string
+    # Optional
+    referenceDefaultCatalogName: ""
+
+    # The default schema name to use for the reference database connection
+    # string
+    # Optional
+    referenceDefaultSchemaName: ""
+
+    # The JDBC driver class for the reference database
+    # string
+    # Optional
+    referenceDriver: ""
+
+    # The JDBC driver properties file for the reference database
+    # string
+    # Optional
+    referenceDriverPropertiesFile: ""
 
     # The reference database password
     # string
     # Optional
     referencePassword: ""
+
+    # Schemas names on reference database to use in diff. This is a CSV list.
+    # string
+    # Optional
+    referenceSchemas: ""
+
+    # 
+    # string
+    # Optional
+    referenceSnapshotControl: ""
 
     # The reference database username
     # string
@@ -68,7 +133,27 @@ steps:
     # Optional
     schemas: ""
 
-    # The target database username
+    # 
+    # bool
+    # Optional
+    skipDatabaseStep: ""
+
+    # 
+    # string
+    # Optional
+    snapshotListener: ""
+
+    # 
+    # string
+    # Optional
+    snapshotTypes: ""
+
+    # 
+    # string
+    # Optional
+    targetSnapshotControl: ""
+
+    # Username to use to connect to the database
     # string
     # Optional
     username: ""
@@ -85,7 +170,7 @@ The liquibase diff action accepts all valid liquibase global options as optional
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/diff@v4.19.1
+  - uses: liquibase-github-actions/diff@v4.20.0
     with:
       referenceUrl: ""
       url: ""

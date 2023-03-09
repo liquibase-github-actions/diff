@@ -12,22 +12,39 @@ service DiffService {
   rpc execute(DiffRequest) returns (Response) {}
 }
 
-/* Compare two databases */
+/* Outputs a description of differences.  If you have a Liquibase Pro key, you can output the differences as JSON using the --format=JSON option */
 message DiffRequest {
-  optional string diff_types = 1; // Types of objects to compare
-  optional string driver = 2; // The JDBC driver class
-  optional string driver_properties_file = 3; // The JDBC driver properties file
-  optional string exclude_objects = 4; // Objects to exclude from diff
-  optional string format = 5; // [PRO] Option to create JSON output
-  optional string include_objects = 6; // Objects to include in diff
-  optional string password = 7; // The target database password
-  optional string reference_password = 8; // The reference database password
-  string reference_url = 9; // *required* The JDBC reference database connection URL
-  optional string reference_username = 10; // The reference database username
-  optional string schemas = 11; // Schemas to include in diff
-  string url = 12; // *required* The JDBC target database connection URL
-  optional string username = 13; // The target database username
-  liquibase.GlobalOptions global_options = 14;
+  optional string compare_control = 1;
+  optional string database = 2;
+  optional string default_catalog_name = 3; // The default catalog name to use for the database connection
+  optional string default_schema_name = 4; // The default schema name to use for the database connection
+  optional string diff_types = 5; // Types of objects to compare
+  optional string driver = 6; // The JDBC driver class
+  optional string driver_properties_file = 7; // The JDBC driver properties file
+  optional string exclude_objects = 8; // Objects to exclude from diff
+  optional string format = 9; // [PRO] Option to create JSON output
+  optional string include_objects = 10; // Objects to include in diff
+  optional string object_change_filter = 11;
+  optional string output_schemas = 12; // Output schemas names. This is a CSV list.
+  optional string password = 13; // Password to use to connect to the database
+  optional string reference_database = 14;
+  optional string reference_default_catalog_name = 15; // The default catalog name to use for the reference database connection
+  optional string reference_default_schema_name = 16; // The default schema name to use for the reference database connection
+  optional string reference_driver = 17; // The JDBC driver class for the reference database
+  optional string reference_driver_properties_file = 18; // The JDBC driver properties file for the reference database
+  optional string reference_password = 19; // The reference database password
+  optional string reference_schemas = 20; // Schemas names on reference database to use in diff. This is a CSV list.
+  optional string reference_snapshot_control = 21;
+  string reference_url = 22; // *required* The JDBC reference database connection URL
+  optional string reference_username = 23; // The reference database username
+  optional string schemas = 24; // Schemas to include in diff
+  optional bool skip_database_step = 25;
+  optional string snapshot_listener = 26;
+  optional string snapshot_types = 27;
+  optional string target_snapshot_control = 28;
+  string url = 29; // *required* The JDBC database connection URL
+  optional string username = 30; // Username to use to connect to the database
+  liquibase.GlobalOptions global_options = 31;
 }
 
 message Response {
