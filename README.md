@@ -18,16 +18,6 @@ steps:
     # Required
     url: ""
 
-    # 
-    # string
-    # Optional
-    compareControl: ""
-
-    # 
-    # string
-    # Optional
-    database: ""
-
     # The default catalog name to use for the database connection
     # string
     # Optional
@@ -68,11 +58,6 @@ steps:
     # Optional
     includeObjects: ""
 
-    # 
-    # string
-    # Optional
-    objectChangeFilter: ""
-
     # Output schemas names. This is a CSV list.
     # string
     # Optional
@@ -82,11 +67,6 @@ steps:
     # string
     # Optional
     password: ""
-
-    # 
-    # string
-    # Optional
-    referenceDatabase: ""
 
     # The default catalog name to use for the reference database connection
     # string
@@ -118,11 +98,6 @@ steps:
     # Optional
     referenceSchemas: ""
 
-    # 
-    # string
-    # Optional
-    referenceSnapshotControl: ""
-
     # The reference database username
     # string
     # Optional
@@ -132,26 +107,6 @@ steps:
     # string
     # Optional
     schemas: ""
-
-    # 
-    # bool
-    # Optional
-    skipDatabaseStep: ""
-
-    # 
-    # string
-    # Optional
-    snapshotListener: ""
-
-    # 
-    # string
-    # Optional
-    snapshotTypes: ""
-
-    # 
-    # string
-    # Optional
-    targetSnapshotControl: ""
 
     # Username to use to connect to the database
     # string
