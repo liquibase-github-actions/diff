@@ -6,7 +6,7 @@ Outputs a description of differences.  If you have a Liquibase Pro key, you can 
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/diff@v4.23.1
+- uses: liquibase-github-actions/diff@v4.23.2
   with:
     # The JDBC reference database connection URL
     # string
@@ -125,7 +125,7 @@ The liquibase diff action accepts all valid liquibase global options as optional
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/diff@v4.23.1
+  - uses: liquibase-github-actions/diff@v4.23.2
     with:
       referenceUrl: ""
       url: ""
