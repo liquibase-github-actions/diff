@@ -28,14 +28,16 @@ message DiffRequest {
   optional string reference_default_schema_name = 12; // The default schema name to use for the reference database connection
   optional string reference_driver = 13; // The JDBC driver class for the reference database
   optional string reference_driver_properties_file = 14; // The JDBC driver properties file for the reference database
-  optional string reference_password = 15; // The reference database password
-  optional string reference_schemas = 16; // Schemas names on reference database to use in diff. This is a CSV list.
-  string reference_url = 17; // *required* The JDBC reference database connection URL
-  optional string reference_username = 18; // The reference database username
-  optional string schemas = 19; // Schemas to include in diff
-  string url = 20; // *required* The JDBC database connection URL
-  optional string username = 21; // Username to use to connect to the database
-  liquibase.GlobalOptions global_options = 22;
+  optional string reference_liquibase_catalog_name = 15; // Reference catalog to use for Liquibase objects
+  optional string reference_liquibase_schema_name = 16; // Reference schema to use for Liquibase objects
+  optional string reference_password = 17; // The reference database password
+  optional string reference_schemas = 18; // Schemas names on reference database to use in diff. This is a CSV list.
+  string reference_url = 19; // *required* The JDBC reference database connection URL
+  optional string reference_username = 20; // The reference database username
+  optional string schemas = 21; // Schemas to include in diff
+  string url = 22; // *required* The JDBC database connection URL
+  optional string username = 23; // Username to use to connect to the database
+  liquibase.GlobalOptions global_options = 24;
 }
 
 message Response {
