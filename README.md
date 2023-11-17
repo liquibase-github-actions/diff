@@ -6,7 +6,7 @@ Outputs a description of differences.  If you have a Liquibase Pro key, you can 
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/diff@v4.24.0
+- uses: liquibase-github-actions/diff@v4.25.0
   with:
     # The JDBC reference database connection URL
     # string
@@ -32,6 +32,26 @@ steps:
     # string
     # Optional
     diffTypes: ""
+
+    # [PRO] Sets the return code for all drift types found in diff or diffchangelog operations. Options are 0, 1, 2, 3, 4
+    # int32
+    # Optional
+    driftSeverity: ""
+
+    # [PRO] Sets the return code for "changed" type drift found in diff or diffchangelog operations. Options are 0, 1, 2, 3, 4
+    # int32
+    # Optional
+    driftSeverityChanged: ""
+
+    # [PRO] Sets the return code for "missing" type drift found in diff or diffchangelog operations. Options are 0, 1, 2, 3, 4
+    # int32
+    # Optional
+    driftSeverityMissing: ""
+
+    # [PRO] Sets the return code for "unexpected" type drift found in diff or diffchangelog operations. Options are 0, 1, 2, 3, 4
+    # int32
+    # Optional
+    driftSeverityUnexpected: ""
 
     # The JDBC driver class
     # string
@@ -113,6 +133,21 @@ steps:
     # Optional
     referenceUsername: ""
 
+    # [PRO] Enable or disable reporting.
+    # bool
+    # Optional
+    reportEnabled: ""
+
+    # [PRO] The name of the report.
+    # string
+    # Optional
+    reportName: ""
+
+    # [PRO] The path to the directory to generate the report.
+    # string
+    # Optional
+    reportPath: ""
+
     # Schemas to include in diff
     # string
     # Optional
@@ -135,7 +170,7 @@ The liquibase diff action accepts all valid liquibase global options as optional
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/diff@v4.24.0
+  - uses: liquibase-github-actions/diff@v4.25.0
     with:
       referenceUrl: ""
       url: ""
