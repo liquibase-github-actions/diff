@@ -6,7 +6,7 @@ Outputs a description of differences.  If you have a Liquibase Pro key, you can 
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/diff@v4.30.0
+- uses: liquibase-github-actions/diff@v4.31.0
   with:
     # The JDBC reference database connection URL
     # string
@@ -148,6 +148,16 @@ steps:
     # Optional
     reportPath: ""
 
+    # [PRO] Setting to prevent the display of exceptions (which might contain SQL) in operation reports. If suppressSql is on, and no value is provided here, it is assumed to also be on.
+    # bool
+    # Optional
+    reportSuppressException: ""
+
+    # [PRO] Setting to prevent the display of changeset SQL in operation reports.
+    # bool
+    # Optional
+    reportSuppressSql: ""
+
     # Schemas to include in diff
     # string
     # Optional
@@ -170,7 +180,7 @@ The liquibase diff action accepts all valid liquibase global options as optional
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/diff@v4.30.0
+  - uses: liquibase-github-actions/diff@v4.31.0
     with:
       referenceUrl: ""
       url: ""

@@ -41,10 +41,12 @@ message DiffRequest {
   optional bool report_enabled = 25; // [PRO] Enable or disable reporting.
   optional string report_name = 26; // [PRO] The name of the report.
   optional string report_path = 27; // [PRO] The path to the directory to generate the report.
-  optional string schemas = 28; // Schemas to include in diff
-  string url = 29; // *required* The JDBC database connection URL
-  optional string username = 30; // Username to use to connect to the database
-  liquibase.GlobalOptions global_options = 31;
+  optional bool report_suppress_exception = 28; // [PRO] Setting to prevent the display of exceptions (which might contain SQL) in operation reports. If suppressSql is on, and no value is provided here, it is assumed to also be on.
+  optional bool report_suppress_sql = 29; // [PRO] Setting to prevent the display of changeset SQL in operation reports.
+  optional string schemas = 30; // Schemas to include in diff
+  string url = 31; // *required* The JDBC database connection URL
+  optional string username = 32; // Username to use to connect to the database
+  liquibase.GlobalOptions global_options = 33;
 }
 
 message Response {
