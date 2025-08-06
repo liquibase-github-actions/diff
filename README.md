@@ -1,4 +1,27 @@
 # Liquibase Diff Action
+
+⚠️ **VERSION SUPPORT NOTICE**: This action supports Liquibase versions up to 4.x. For Liquibase 5.0+ features, please migrate to [`liquibase/setup-liquibase`](https://github.com/liquibase/setup-liquibase).
+
+## Migration Guide
+
+### Current Approach (Supports Liquibase 4.x)
+```yaml
+- uses: liquibase-github-actions/diff@v4.33.0
+  with:
+    # your parameters here
+```
+
+### Recommended for Liquibase 5.0+ Features
+```yaml
+- uses: liquibase/setup-liquibase@v1
+  with:
+    version: '5.0.0'  # Supports latest features
+    edition: 'oss'
+- run: liquibase diff # add your parameters as CLI flags
+```
+
+---
+
 Official GitHub Action to run Liquibase Diff in your GitHub Action Workflow. For more information on how diff works visit the [Official Liquibase Documentation](https://docs.liquibase.com/commands/home.html).
 ## Diff
 Outputs a description of differences.  If you have a Liquibase Pro key, you can output the differences as JSON using the --format=JSON option
